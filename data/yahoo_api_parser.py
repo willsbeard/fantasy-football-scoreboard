@@ -53,6 +53,7 @@ class YahooFantasyInfo():
         response = self.oauth.session.get(url, params={'format': 'json'})
         matchup = response.json()["fantasy_content"]["league"][1]["scoreboard"]["0"]["matchups"]
         matchup_info = {}
+        opponent = 0
         for m in matchup:
             if not isinstance(matchup[m], int):
                 team = matchup[m]['matchup']['0']['teams']
@@ -66,7 +67,9 @@ class YahooFantasyInfo():
                             matchup_info['user_team'] = team[t]['team'][0][2]['name']
                             matchup_info['user_proj'] = team[t]['team'][1]['team_projected_points']['total']
                             matchup_info['user_score'] = float(team[t]['team'][1]['team_points']['total'])
-                        else:
+                            opponent = 1
+                        #else:
+                        elif opponent == 1:
                             matchup_info['opp_name'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
                             matchup_info['opp_av'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
                             # matchup_info['opp_av_location'] = team[t]['team'][0][19]['managers'][0]['manager']['image_url']
@@ -74,6 +77,7 @@ class YahooFantasyInfo():
                             matchup_info['opp_team'] = team[t]['team'][0][2]['name']
                             matchup_info['opp_proj'] = team[t]['team'][1]['team_projected_points']['total']
                             matchup_info['opp_score'] = float(team[t]['team'][1]['team_points']['total'])
+                            opponent = opponent + 1
         return matchup_info
 
     def get_avatars(self, teams):
