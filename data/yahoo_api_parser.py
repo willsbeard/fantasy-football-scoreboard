@@ -61,14 +61,16 @@ class YahooFantasyInfo():
                         if team[t]['team'][0][3]:
                             matchup_info['user_name'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
                             matchup_info['user_av'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
-                            matchup_info['user_av_location'] = team[t]['team'][0][19]['managers'][0]['manager']['image_url']
+                            # matchup_info['user_av_location'] = team[t]['team'][0][19]['managers'][0]['manager']['image_url']
+                            matchup_info['user_av_location'] = team[t]['team'][0][5]['team_logos'][0]['team_logo']['url']
                             matchup_info['user_team'] = team[t]['team'][0][2]['name']
                             matchup_info['user_proj'] = team[t]['team'][1]['team_projected_points']['total']
                             matchup_info['user_score'] = float(team[t]['team'][1]['team_points']['total'])
                         else:
                             matchup_info['opp_name'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
                             matchup_info['opp_av'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
-                            matchup_info['opp_av_location'] = team[t]['team'][0][19]['managers'][0]['manager']['image_url']
+                            # matchup_info['opp_av_location'] = team[t]['team'][0][19]['managers'][0]['manager']['image_url']
+                            matchup_info['opp_av_location'] = team[t]['team'][0][5]['team_logos'][0]['team_logo']['url']
                             matchup_info['opp_team'] = team[t]['team'][0][2]['name']
                             matchup_info['opp_proj'] = team[t]['team'][1]['team_projected_points']['total']
                             matchup_info['opp_score'] = float(team[t]['team'][1]['team_points']['total'])
