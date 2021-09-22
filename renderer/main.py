@@ -349,14 +349,15 @@ class MainRenderer:
             result = ''
             opp_colour = (255, 255, 255)
             user_colour = (255, 255, 255)
-            if matchup['opp_score'] > matchup['user_score']:
-                result = 'LOSS'
-                opp_colour = (25, 200, 25)
-                user_colour = (200, 25, 25)
-            else:
-                result = 'WIN'
-                opp_colour = (200, 25, 25)
-                user_colour = (25, 200, 25)
+            #if matchup['opp_score'] > matchup['user_score']:
+            #    result = 'LOSS'
+            #    opp_colour = (25, 200, 25)
+            #    user_colour = (200, 25, 25)
+            #else:
+            #    result = 'WIN'
+            #    opp_colour = (200, 25, 25)
+            #    user_colour = (25, 200, 25)
+            result = 'TEST'
             self.draw.multiline_text((left_offset, 19), opp_big_score, fill=opp_colour, font=self.font, align="left")
             self.draw.multiline_text((opp_big_size + left_offset, 19), opp_small_score, fill=opp_colour, font=self.font_mini, align="left")
             self.draw.multiline_text((self.width - user_small_size - user_big_size, 19), user_big_score, fill=user_colour, font=self.font, align="right")

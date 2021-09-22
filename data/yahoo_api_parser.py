@@ -60,7 +60,7 @@ class YahooFantasyInfo():
                 for t in team:
                     if not isinstance(team[t], int):
                         if team[t]['team'][0][3]:
-                            print(team[t])
+                            # print(team[t])
                             matchup_info['user_name'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
                             matchup_info['user_av'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
                             # matchup_info['user_av_location'] = team[t]['team'][0][19]['managers'][0]['manager']['image_url']
