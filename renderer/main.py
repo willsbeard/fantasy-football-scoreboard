@@ -319,7 +319,7 @@ class MainRenderer:
             # testing
             # Using big and small numbers
             # this is so so so terrible, I know but idc come at me I'll fix it eventually when I'm not tired and trying random chit
-            opp_big, opp_small = divmod(matchup['opp_proj'], 1)
+            opp_big, opp_small = divmod(matchup['opp_score'], 1)
             opp_big = int(opp_big)
             opp_small = int(round(opp_small, 2) * 100)
             if opp_small < 10:
@@ -327,7 +327,7 @@ class MainRenderer:
                 opp_small_score = '{}'.format(opp_small)
             else:
                 opp_small_score = '{0:02d}'.format(opp_small)
-            user_big, user_small = divmod(matchup['user_proj'], 1)
+            user_big, user_small = divmod(matchup['user_score'], 1)
             user_big = int(user_big)
             user_small = int(round(user_small, 2) * 100)
             if user_small < 10:
