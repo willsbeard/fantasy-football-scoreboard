@@ -319,7 +319,7 @@ class MainRenderer:
             # testing
             # Using big and small numbers
             # this is so so so terrible, I know but idc come at me I'll fix it eventually when I'm not tired and trying random chit
-            opp_big, opp_small = divmod(matchup['opp_score'], 1)
+            opp_big, opp_small = divmod(matchup['opp_proj'], 1)
             opp_big = int(opp_big)
             opp_small = int(round(opp_small, 2) * 100)
             if opp_small < 10:
@@ -327,7 +327,7 @@ class MainRenderer:
                 opp_small_score = '{}'.format(opp_small)
             else:
                 opp_small_score = '{0:02d}'.format(opp_small)
-            user_big, user_small = divmod(matchup['user_score'], 1)
+            user_big, user_small = divmod(matchup['user_proj'], 1)
             user_big = int(user_big)
             user_small = int(round(user_small, 2) * 100)
             if user_small < 10:
@@ -357,15 +357,15 @@ class MainRenderer:
             #    result = 'WIN'
             #    opp_colour = (200, 25, 25)
             #    user_colour = (25, 200, 25)
-            result = 'TEST'
+            result = 'PREGAME'
             self.draw.multiline_text((left_offset, 19), opp_big_score, fill=opp_colour, font=self.font, align="left")
             self.draw.multiline_text((opp_big_size + left_offset, 19), opp_small_score, fill=opp_colour, font=self.font_mini, align="left")
             self.draw.multiline_text((self.width - user_small_size - user_big_size, 19), user_big_score, fill=user_colour, font=self.font, align="right")
             self.draw.multiline_text((self.width - user_small_size, 19), user_small_score, fill=user_colour, font=self.font_mini, align="right")
             # Set the position of the information on screen.
             game_date_pos = center_text(self.font_mini.getsize(game_date)[0], 32)
-            result_pos = center_text(self.font_res.getsize(result)[0], 32) # this was font_mini before, was that on purpose?
-            # result_pos = center_text(self.font_mini.getsize(result)[0], 32)
+            # result_pos = center_text(self.font_res.getsize(result)[0], 32) # this was font_mini before, was that on purpose?
+            result_pos = center_text(self.font_mini.getsize(result)[0], 32)
             # Draw the text on the Data image.
             self.draw.multiline_text((game_date_pos, 0), game_date, fill=(255, 255, 255), font=self.font_mini, align="center")
             self.draw.multiline_text((result_pos, 9), result, fill=(255, 255, 255), font=self.font_res, align="center")
