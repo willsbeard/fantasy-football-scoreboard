@@ -13,6 +13,7 @@
     "yahoo":{
         "consumer_key": "",
         "consumer_secret": "",
+        "team_id",
         "league_id": "",
         "league_id2": "",
         "game_id": "406"
