@@ -88,11 +88,11 @@ class YahooFantasyInfo():
         # print("league info: ",league)
         sCount = 1
         league_info = {}
-        for s in league:
+        #for s in league:
             #if not isinstance(league[s], int):
             #    standing = league[s]['teams']['0']['team']
             #    print("Standing: ",standing)
-        league_info['user_name'] = "test"
+        #league_info['user_name'] = "test"
 #        return league_info
 
     def get_avatars(self, teams):
