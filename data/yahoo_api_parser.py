@@ -85,6 +85,8 @@ def get_league(self, game_id, league_id, team_id, week):
         league = response.json()["fantasy_content"]["league"][1]["standings"]
         print("league info: ",league)
         league_info = {}
+        league_info['user_name'] = "test"
+        return league_info
 #        for m in matchup:
 #            if not isinstance(matchup[m], int):
 #                team = matchup[m]['matchup']['0']['teams']
@@ -105,7 +107,7 @@ def get_league(self, game_id, league_id, team_id, week):
 #                            matchup_info['opp_team'] = team[t]['team'][0][2]['name']
 #                            matchup_info['opp_proj'] = team[t]['team'][1]['team_projected_points']['total']
 #                            matchup_info['opp_score'] = float(team[t]['team'][1]['team_points']['total'])
-        return league_info
+#        return league_info
 
     def get_avatars(self, teams):
         self.refresh_access_token()
