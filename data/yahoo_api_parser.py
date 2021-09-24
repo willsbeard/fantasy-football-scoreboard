@@ -88,8 +88,9 @@ class YahooFantasyInfo():
         sCount = 1
         league_info = {}
         for s in league:
-            print("Standing: ", sCount)
-            sCount = sCount + 1
+            if not isinstance(matchup[m], int):
+                standing = league[s]['teams']['0']['team']
+                print("Standing: ",standing)
         league_info['user_name'] = "test"
 #        return league_info
 
