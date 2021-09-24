@@ -54,11 +54,12 @@ class YahooFantasyInfo():
         url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
         response = self.oauth.session.get(url, params={'format': 'json'})
         matchup = response.json()["fantasy_content"]["team"][1]["matchups"]
+        print("matchup info: ",matchup)
         matchup_info = {}
         for m in matchup:
             if not isinstance(matchup[m], int):
                 team = matchup[m]['matchup']['0']['teams']
-                print("team info: ",team)
+                # print("team info: ",team)
                 for t in team:
                     if not isinstance(team[t], int):
                         if team[t]['team'][0][3]:
@@ -83,7 +84,7 @@ class YahooFantasyInfo():
         url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
         response = self.oauth.session.get(url, params={'format': 'json'})
         league = response.json()["fantasy_content"]["league"][1]["standings"]
-        print("league info: ",league)
+        # print("league info: ",league)
         league_info = {}
         league_info['user_name'] = "test"
 #        return league_info
