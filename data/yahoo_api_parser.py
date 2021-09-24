@@ -77,15 +77,15 @@ class YahooFantasyInfo():
                             matchup_info['opp_score'] = float(team[t]['team'][1]['team_points']['total'])
         return matchup_info
 
-#def get_league(self, game_id, league_id, team_id, week):
-#        self.refresh_access_token()
-#        # url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
-#        url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
-#        response = self.oauth.session.get(url, params={'format': 'json'})
-#        league = response.json()["fantasy_content"]["league"][1]["standings"]
-#        print("league info: ",league)
-#        league_info = {}
-#        league_info['user_name'] = "test"
+    def get_league(self, game_id, league_id, team_id, week):
+        self.refresh_access_token()
+        # url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
+        url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
+        response = self.oauth.session.get(url, params={'format': 'json'})
+        league = response.json()["fantasy_content"]["league"][1]["standings"]
+        print("league info: ",league)
+        league_info = {}
+        league_info['user_name'] = "test"
 #        return league_info
 
     def get_avatars(self, teams):
