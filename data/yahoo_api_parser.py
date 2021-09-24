@@ -88,7 +88,7 @@ def get_league(self, game_id, league_id, team_id, week):
         league_info['user_name'] = "test"
         return league_info
 
-    def get_avatars(self, teams):
+def get_avatars(self, teams):
         self.refresh_access_token()
         debug.info('getting avatars')
         logospath = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'logos'))
