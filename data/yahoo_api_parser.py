@@ -39,6 +39,7 @@ class YahooFantasyInfo():
             self.oauth.refresh_access_token()
 
         self.matchup = self.get_matchup(self.game_id, self.league_id, self.team_id, week)
+        self.league = self.get_league(self.game_id, self.league_id, self.team_id, week)
         self.get_avatars(self.matchup)
 
     # yeah these two are stupid and useless functions but right now I'm panicking trying to get this to work
@@ -57,7 +58,7 @@ class YahooFantasyInfo():
         for m in matchup:
             if not isinstance(matchup[m], int):
                 team = matchup[m]['matchup']['0']['teams']
-                print(team)
+                print("team info: ",team)
                 for t in team:
                     if not isinstance(team[t], int):
                         if team[t]['team'][0][3]:
@@ -75,6 +76,36 @@ class YahooFantasyInfo():
                             matchup_info['opp_proj'] = team[t]['team'][1]['team_projected_points']['total']
                             matchup_info['opp_score'] = float(team[t]['team'][1]['team_points']['total'])
         return matchup_info
+
+def get_league(self, game_id, league_id, team_id, week):
+        self.refresh_access_token()
+        # url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
+        url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
+        response = self.oauth.session.get(url, params={'format': 'json'})
+        league = response.json()["fantasy_content"]["league"][1]["standings"]
+        print("league info: ",league)
+        league_info = {}
+#        for m in matchup:
+#            if not isinstance(matchup[m], int):
+#                team = matchup[m]['matchup']['0']['teams']
+#                print(team)
+#                for t in team:
+#                    if not isinstance(team[t], int):
+#                        if team[t]['team'][0][3]:
+#                            matchup_info['user_name'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
+#                            matchup_info['user_av'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
+#                            matchup_info['user_av_location'] = team[t]['team'][0][5]['team_logos'][0]['team_logo']['url']
+#                            matchup_info['user_team'] = team[t]['team'][0][2]['name']
+#                            matchup_info['user_proj'] = team[t]['team'][1]['team_projected_points']['total']
+#                            matchup_info['user_score'] = float(team[t]['team'][1]['team_points']['total'])
+#                        else:
+#                            matchup_info['opp_name'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
+#                            matchup_info['opp_av'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
+#                            matchup_info['opp_av_location'] = team[t]['team'][0][5]['team_logos'][0]['team_logo']['url']
+#                            matchup_info['opp_team'] = team[t]['team'][0][2]['name']
+#                            matchup_info['opp_proj'] = team[t]['team'][1]['team_projected_points']['total']
+#                            matchup_info['opp_score'] = float(team[t]['team'][1]['team_points']['total'])
+        return league_info
 
     def get_avatars(self, teams):
         self.refresh_access_token()
