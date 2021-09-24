@@ -58,6 +58,7 @@ class YahooFantasyInfo():
         #print(matchup)
         matchup_info = {}
         for m in matchup:
+            print("M: ",m)
             if not isinstance(matchup[m], int):
                 team = matchup[m]['matchup']['0']['teams']
                 # print("team info: ",team)
@@ -87,11 +88,11 @@ class YahooFantasyInfo():
         response = self.oauth.session.get(url, params={'format': 'json'})
         matchup = response.json()["fantasy_content"]["league"][1]["standings"]
         #print(matchup)
-        matchup_info = {}
-        for m in matchup:
-            if not isinstance(matchup[m], int):
-                team = matchup[m]['teams']['0']['team']
-                print("standing info: ",team)
+        #matchup_info = {}
+        #for m in matchup:
+        #    if not isinstance(matchup[m], int):
+        #        team = matchup[m]['teams']['0']['team']
+        #        print("standing info: ",team)
                 #for t in team:
                     #print("t: ",t)
                     #if not isinstance(team[t], int):
