@@ -61,6 +61,7 @@ class YahooFantasyInfo():
                 team = matchup[m]['matchup']['0']['teams']
                 # print("team info: ",team)
                 for t in team:
+                    print("t: ",t)
                     if not isinstance(team[t], int):
                         if team[t]['team'][0][3]:
                             matchup_info['user_name'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
@@ -89,8 +90,8 @@ class YahooFantasyInfo():
         league_info = {}
         for s in league:
             #if not isinstance(league[s], int):
-                standing = league[s]['teams']['0']['team']
-                print("Standing: ",standing)
+            #    standing = league[s]['teams']['0']['team']
+            #    print("Standing: ",standing)
         league_info['user_name'] = "test"
 #        return league_info
 
