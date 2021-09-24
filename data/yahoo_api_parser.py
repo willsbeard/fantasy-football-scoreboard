@@ -53,8 +53,8 @@ class YahooFantasyInfo():
         self.refresh_access_token()
         url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
         response = self.oauth.session.get(url, params={'format': 'json'})
-        print("Matchup Resposne")
-        print(response)
+        #print("Matchup Resposne")
+        #print(response)
         matchup = response.json()["fantasy_content"]["team"][1]["matchups"]
         #print(matchup)
         matchup_info = {}
@@ -87,13 +87,13 @@ class YahooFantasyInfo():
         # url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
         url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
         response = self.oauth.session.get(url, params={'format': 'json'})
-        print("Standing Response")
-        print(response)
-        matchup = response.json()["fantasy_content"]["league"][1]["standings"]
+        #print("Standing Response")
+        #print(response)
+        matchup = response.json()["fantasy_content"]["league"][1]["team"]
         #print(matchup)
         #matchup_info = {}
-        #for m in matchup:
-        #    print("S: ",m)
+        for m in matchup:
+            print("S: ",m)
         #    if not isinstance(matchup[m], int):
         #        team = matchup[m]['teams']['0']['team']
         #        print("standing info: ",team)
