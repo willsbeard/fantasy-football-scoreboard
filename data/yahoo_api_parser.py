@@ -94,7 +94,7 @@ class YahooFantasyInfo():
             if not isinstance(standings[s], int):
                 team = standings[s]["team"]
                 print("TEAM")
-                print(team)
+                print(team[2]['name'])
                 #for t in team:
                     #print("T: ",t)
                     #print(team[t][1]['name'])
