@@ -87,15 +87,16 @@ class YahooFantasyInfo():
         # url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
         url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
         response = self.oauth.session.get(url, params={'format': 'json'})
-        matchup = response.json()["fantasy_content"]["league"][1]["standings"][0]["teams"]
-        #matchup = response.json()["fantasy_content"]["league"][1]["standings"]
-        matchup_info = {}
-        for m in matchup:
-            #Loop through Teams, skipping the count
-            if not isinstance(matchup[m], int):
-                team = matchup[m]["team"]
-                for t in team:
-                    print("T: ",t)
+        standings = response.json()["fantasy_content"]["league"][1]["standings"][0]["teams"]
+        #standings = response.json()["fantasy_content"]["league"][1]["standings"]
+        standing_info = {}
+        for s in standings:
+            if not isinstance(standings[s], int):
+                team = standings[s]["team"]
+                print("TEAM")
+                print(team)
+                #for t in team:
+                    #print("T: ",t)
                     #print(team[t][1]['name'])
 
     def get_avatars(self, teams):
