@@ -96,10 +96,11 @@ class YahooFantasyInfo():
         matchup_info = {}
         for m in matchup:
             #print("M: ",m)
+            #Loop through Teams, skipping the count
             if not isinstance(matchup[m], int):
-                print("M: ",m)
-                #team = matchup[m]["teams"]
-                #print("standing info: ",team)
+                #print("M: ",m)
+                team = matchup[m]["team"]
+                print("Team: ",team)
                 #for t in team:
                     #print("t: ",t)
                     #if not isinstance(team[t], int):
