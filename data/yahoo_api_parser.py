@@ -91,12 +91,13 @@ class YahooFantasyInfo():
         #print(response)
         matchup = response.json()["fantasy_content"]["league"][1]["standings"][0]["teams"]
         #matchup = response.json()["fantasy_content"]["league"][1]["standings"]
-        print("Matchup: ")
-        print(matchup)
+        #print("Matchup: ")
+        #print(matchup)
         matchup_info = {}
         for m in matchup:
-            print("M: ",m)
-            #if not isinstance(matchup[m], int):
+            #print("M: ",m)
+            if not isinstance(matchup[m], int):
+                print("M: ",m)
                 #team = matchup[m]["teams"]
                 #print("standing info: ",team)
                 #for t in team:
