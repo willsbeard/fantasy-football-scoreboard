@@ -96,7 +96,7 @@ class YahooFantasyInfo():
         matchup_info = {}
         for m in matchup:
             print("M: ",m)
-            if not isinstance(matchup[m], int):
+            #if not isinstance(matchup[m], int):
                 #team = matchup[m]["teams"]
                 #print("standing info: ",team)
                 #for t in team:
