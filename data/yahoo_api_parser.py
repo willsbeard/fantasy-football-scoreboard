@@ -82,7 +82,7 @@ class YahooFantasyInfo():
                             matchup_info['opp_score'] = float(team[t]['team'][1]['team_points']['total'])
         return matchup_info
 
-    #def get_league(self, game_id, league_id, team_id, week):
+    def get_league(self, game_id, league_id, team_id, week):
     #    self.refresh_access_token()
     #    # url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
     #    url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
@@ -90,7 +90,7 @@ class YahooFantasyInfo():
     #    standings = response.json()["fantasy_content"]["league"][1]["standings"]
         #standings = response.json()["fantasy_content"]["league"][1]["standings"][0]["teams"]
         #standings = response.json()["fantasy_content"]["league"][1]["standings"]
-        #print("STANDINGS: ")
+        print("STANDINGS")
         #print(standings)
     #    standing_info = {}
     #    for s in standings:
