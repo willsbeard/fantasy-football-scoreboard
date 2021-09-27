@@ -53,10 +53,9 @@ class YahooFantasyInfo():
         self.refresh_access_token()
         url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
         response = self.oauth.session.get(url, params={'format': 'json'})
-        #print("Matchup Resposne")
-        #print(response)
         matchup = response.json()["fantasy_content"]["team"][1]["matchups"]
-        #print(matchup)
+        print("MATCHUP")
+        print(response)
         matchup_info = {}
         for m in matchup:
             #print("M: ",m)
