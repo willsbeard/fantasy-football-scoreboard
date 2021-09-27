@@ -93,6 +93,7 @@ class YahooFantasyInfo():
         #print(standings)
         standing_info = {}
         for s in standings:
+            print("STAND")
             print(s)
             #if not isinstance(standings[s], int):
                 #team = standings[s]["team"]
