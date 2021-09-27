@@ -86,7 +86,7 @@ class YahooFantasyInfo():
         # url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
         url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
         response = self.oauth.session.get(url, params={'format': 'json'})
-        standings = response.json()["fantasy_content"]["league"][1]["standings"]["teams"]
+        standings = response.json()["fantasy_content"]["league"][1]["standings"][0]["teams"]
         #standings = response.json()["fantasy_content"]["league"][1]["standings"]
         print("STANDINGS: ")
         print(standings)
