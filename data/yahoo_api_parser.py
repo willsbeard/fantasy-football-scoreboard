@@ -89,12 +89,13 @@ class YahooFantasyInfo():
         standings = response.json()["fantasy_content"]["league"][1]["standings"]
         #standings = response.json()["fantasy_content"]["league"][1]["standings"][0]["teams"]
         #standings = response.json()["fantasy_content"]["league"][1]["standings"]
-        print("STANDINGS: ")
-        print(standings)
+        #print("STANDINGS: ")
+        #print(standings)
         standing_info = {}
         for s in standings:
-            if not isinstance(standings[s], int):
-                team = standings[s]["team"]
+            print(s)
+            #if not isinstance(standings[s], int):
+                #team = standings[s]["team"]
                 #print(team)
                 # TEAM DATA
                 # [[{u'team_key': u'406.l.499449.t.10'}, {u'team_id': u'10'}, {u'name': u'TURDS De La Noche'}, [], {u'url': u'https://football.fantasysports.yahoo.com/f1/499449/10'}, {u'team_logos': [{u'team_logo': {u'url': u'https://yahoofantasysports-res.cloudinary.com/image/upload/t_s192sq/fantasy-logos/24714832884_a8b36fc250.jpg', u'size': u'large'}}]}, [], {u'waiver_priority': 4}, [], {u'number_of_moves': u'3'}, {u'number_of_trades': 0}, {u'roster_adds': {u'coverage_type': u'week', u'coverage_value': 3, u'value': u'1'}}, [], {u'league_scoring_type': u'head'}, [], [], {u'has_draft_grade': 0}, [], [], {u'managers': [{u'manager': {u'felo_tier': u'platinum', u'felo_score': u'871', u'image_url': u'https://s.yimg.com/ag/images/default_user_profile_pic_64sq.jpg', u'manager_id': u'10', u'guid': u'IJDK7Y7P44XS45OKJ2CJVOM7AM', u'nickname': u'Thomas'}}]}], {u'team_points': {u'coverage_type': u'season', u'season': u'2021', u'total': u'286.10'}}, {u'team_standings': {u'streak': {u'type': u'win', u'value': u'1'}, u'points_against': 302.91999999999996, u'outcome_totals': {u'wins': u'1', u'percentage': u'.500', u'losses': u'1', u'ties': 0}, u'rank': u'9', u'points_for': u'286.10'}}]
