@@ -70,6 +70,7 @@ class YahooFantasyInfo():
                     print("T in TEAM: ")
                     print(t)
                     if not isinstance(team[t], int):
+                        print("INSIDE")
                         if team[t]['team'][0][3]:
                             matchup_info['user_name'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
                             matchup_info['user_av'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
