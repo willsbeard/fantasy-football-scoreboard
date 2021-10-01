@@ -101,12 +101,13 @@ class YahooFantasyInfo():
             #print(s)
             if not isinstance(standings[s], int):
                 #print("TEAM: ",standings[s]['team'][0][2]['name']," RANK: ",standings[s]['team'][2]['team_standings']['rank'])
-                print(standings[s]['team'][0][2]['name'])
+                #print(standings[s]['team'][0][2]['name'])
                 #print(standings[s]['team'][2]['team_standings']['rank'])
                 #print(" ")
                 team_name = standings[s]['team'][0][2]['name']
                 print(team_name)
-                #team_rank = standings[s]['team'][2]['team_standings']['rank']
+                team_rank = standings[s]['team'][2]['team_standings']['rank']
+                print(team_rank)
                 #standing_info['team',s] = [team_name,team_rank]
                 #print(team_name," ", team_rank)
                 #standing_info['team',s] = [standings[s]['team'][0][2]['name'], standings[s]['team'][2]['team_standings']['rank']]
