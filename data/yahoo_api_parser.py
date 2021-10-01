@@ -88,7 +88,6 @@ class YahooFantasyInfo():
 
     def get_league(self, game_id, league_id, team_id, week):
         self.refresh_access_token()
-        # url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
         url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
         response = self.oauth.session.get(url, params={'format': 'json'})
         #standings = response.json()["fantasy_content"]["league"][1]["standings"]
@@ -102,9 +101,13 @@ class YahooFantasyInfo():
             #print(s)
             if not isinstance(standings[s], int):
                 #print("TEAM: ",standings[s]['team'][0][2]['name']," RANK: ",standings[s]['team'][2]['team_standings']['rank'])
-                print(standings[s]['team'][0][2]['name'])
-                print(standings[s]['team'][2]['team_standings']['rank'])
-                print(" ")
+                #print(standings[s]['team'][0][2]['name'])
+                #print(standings[s]['team'][2]['team_standings']['rank'])
+                team_name = standings[s]['team'][0][2]['name']
+                team_rank = standings[s]['team'][2]['team_standings']['rank']
+                #print(" ")
+                standing_info['team',s] = [team_name, team_rank]
+        print(standing_info)
 
     def get_avatars(self, teams):
         self.refresh_access_token()
