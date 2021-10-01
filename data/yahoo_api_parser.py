@@ -90,16 +90,10 @@ class YahooFantasyInfo():
         self.refresh_access_token()
         url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
         response = self.oauth.session.get(url, params={'format': 'json'})
-        #standings = response.json()["fantasy_content"]["league"][1]["standings"]
-        standings = response.json()["fantasy_content"]["league"][1]["standings"][0]["teams"]
-        #standings = response.json()["fantasy_content"]["league"][1]["standings"]
-        #print("FULL STANDING")
-        #print(standings)
+                standings = response.json()["fantasy_content"]["league"][1]["standings"][0]["teams"]
         standing_info = {}
         final_standings_info = {}
         for s in standings:
-            #print("S in STANDING")
-            #print(s)
             if not isinstance(standings[s], int):
                 team_name = standings[s]['team'][0][2]['name']
                 team_rank = standings[s]['team'][2]['team_standings']['rank']
@@ -107,12 +101,16 @@ class YahooFantasyInfo():
                 team_losses = standings[s]['team'][2]['team_standings']['outcome_totals']['losses']
                 team_ties = standings[s]['team'][2]['team_standings']['outcome_totals']['ties']
                 standing_info['team',s] = [team_rank,team_name,team_wins,team_losses,team_ties]
+        
+        #SORT RANKINGS
         for t in standing_info:
             rank = int(standing_info[t][0])-1
             final_standings_info[rank]=standing_info[t]
             #print("PRE: ",standing_info[t]," ",rank)
-        for q in range(12):
-            print("FINAL: ",final_standings_info[q])
+        
+        # TEST PRINT SORTED RANKING
+        # for q in range(12):
+        #    print("FINAL: ",final_standings_info[q])
 
     def get_avatars(self, teams):
         self.refresh_access_token()
