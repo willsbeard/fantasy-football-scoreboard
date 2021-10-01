@@ -96,6 +96,7 @@ class YahooFantasyInfo():
         #print("FULL STANDING")
         #print(standings)
         standing_info = {}
+        final_standings_info = {}
         for s in standings:
             #print("S in STANDING")
             #print(s)
@@ -105,14 +106,16 @@ class YahooFantasyInfo():
                 #print(standings[s]['team'][2]['team_standings']['rank'])
                 #print(" ")
                 team_name = standings[s]['team'][0][2]['name']
-                print(team_name)
+                #print(team_name)
                 team_rank = standings[s]['team'][2]['team_standings']['rank']
-                print(team_rank)
+                #print(team_rank)
                 standing_info['team',s] = [team_rank,team_name]
                 #print(team_name," ", team_rank)
                 #standing_info['team',s] = [standings[s]['team'][0][2]['name'], standings[s]['team'][2]['team_standings']['rank']]
         for t in standing_info:
-            print(standing_info[t][0])
+            rank = standing_info[t][0]
+            final_standings_info[rank]=standing_info[t]
+        print(final_standings_info)
 
     def get_avatars(self, teams):
         self.refresh_access_token()
