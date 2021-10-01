@@ -54,22 +54,22 @@ class YahooFantasyInfo():
         url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
         response = self.oauth.session.get(url, params={'format': 'json'})
         matchup = response.json()["fantasy_content"]["team"][1]["matchups"]
-        print("FULL MATCHUP")
-        print(matchup)
+        #print("FULL MATCHUP")
+        #print(matchup)
         matchup_info = {}
         for m in matchup:
-            print("M in MATCHUP: ")
-            print(m)
+            #print("M in MATCHUP: ")
+            #print(m)
             if not isinstance(matchup[m], int): #WHEN INTEGER ENTER
                 #print ("FALSE")
                 team = matchup[m]['matchup']['0']['teams']
-                print("TEAM")
-                print(team)
+                #print("TEAM")
+                #print(team)
                 for t in team:
-                    print("T in TEAM: ")
-                    print(t)
+                    #print("T in TEAM: ")
+                    #print(t)
                     if not isinstance(team[t], int):
-                        print("INSIDE")
+                        #print("INSIDE")
                         if team[t]['team'][0][3]:
                             matchup_info['user_name'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
                             matchup_info['user_av'] = team[t]['team'][0][19]['managers'][0]['manager']['nickname']
@@ -94,12 +94,12 @@ class YahooFantasyInfo():
         standings = response.json()["fantasy_content"]["league"][1]["standings"]
         #standings = response.json()["fantasy_content"]["league"][1]["standings"][0]["teams"]
         #standings = response.json()["fantasy_content"]["league"][1]["standings"]
-        #print("FULL STANDINGS")
-        #print(standings)
+        print("FULL STANDING")
+        print(standings)
         standing_info = {}
-        #for s in standings:
-        #    print("STAND")
-        #    print(s)
+        for s in standings:
+            print("S in STANDING")
+            print(s)
         #    if not isinstance(standings[s], int):
         #        team = standings[s]["team"]
                 #print(team)
