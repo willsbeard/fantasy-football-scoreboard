@@ -113,7 +113,7 @@ class YahooFantasyInfo():
                 #print(team_name," ", team_rank)
                 #standing_info['team',s] = [standings[s]['team'][0][2]['name'], standings[s]['team'][2]['team_standings']['rank']]
         for t in standing_info:
-            rank = standing_info[t][0]
+            rank = int(standing_info[t][0])-1
             final_standings_info[rank]=standing_info[t]
             print("PRE: ",standing_info[t]," ",rank)
         for q in range(12):
