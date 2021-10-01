@@ -104,10 +104,11 @@ class YahooFantasyInfo():
                 #print(standings[s]['team'][0][2]['name'])
                 #print(standings[s]['team'][2]['team_standings']['rank'])
                 #print(" ")
-                #team_name = standings[s]['team'][0][2]['name']
-                #team_rank = standings[s]['team'][2]['team_standings']['rank']
+                team_name = str(standings[s]['team'][0][2]['name'])
+                team_rank = str(standings[s]['team'][2]['team_standings']['rank'])
+                standing_info['team',s] = [team_name,team_rank]
                 #print(team_name," ", team_rank)
-                standing_info['team',s] = [standings[s]['team'][0][2]['name'], standings[s]['team'][2]['team_standings']['rank']]
+                #standing_info['team',s] = [standings[s]['team'][0][2]['name'], standings[s]['team'][2]['team_standings']['rank']]
         print(standing_info)
 
     def get_avatars(self, teams):
