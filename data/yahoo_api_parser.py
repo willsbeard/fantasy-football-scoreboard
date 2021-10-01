@@ -104,8 +104,9 @@ class YahooFantasyInfo():
                 #print(standings[s]['team'][0][2]['name'])
                 #print(standings[s]['team'][2]['team_standings']['rank'])
                 #print(" ")
-                #team_name = str(standings[s]['team'][0][2]['name'])
-                print(standings[s]['team'][0][2]['name'])
+                team_name = standings[s]['team'][0][2]['name']
+                team_name2 = str(team_name)
+                print(team_name2)
                 #team_rank = standings[s]['team'][2]['team_standings']['rank']
                 #standing_info['team',s] = [team_name,team_rank]
                 #print(team_name," ", team_rank)
