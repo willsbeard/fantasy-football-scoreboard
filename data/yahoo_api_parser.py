@@ -110,8 +110,8 @@ class YahooFantasyInfo():
             #print("PRE: ",standing_info[t]," ",rank)
         
         # TEST PRINT SORTED RANKING
-        # for q in range(12):
-        #    print("FINAL: ",final_standings_info[q])
+        for q in range(12):
+            print("FINAL: ",final_standings_info[q])
 
     def get_avatars(self, teams):
         self.refresh_access_token()
