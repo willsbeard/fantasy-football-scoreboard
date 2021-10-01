@@ -116,7 +116,7 @@ class YahooFantasyInfo():
             rank = standing_info[t][0]
             final_standings_info[rank]=standing_info[t]
             print("PRE: ",standing_info[t]," ",rank)
-        for q in final_standings_info:
+        for q in range(12):
             print("FINAL: ",final_standings_info[q])
 
     def get_avatars(self, teams):
