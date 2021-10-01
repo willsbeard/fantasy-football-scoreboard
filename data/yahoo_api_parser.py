@@ -101,7 +101,7 @@ class YahooFantasyInfo():
             #print("S in STANDING")
             #print(s)
             if not isinstance(standings[s], int):
-                print(standings[s]['team'][0][2]['name'])
+                print("TEAM: ",standings[s]['team'][0][2]['name']," RANK: ",standings[s]['team'][2]['team_standings']['rank'])
 
     def get_avatars(self, teams):
         self.refresh_access_token()
