@@ -101,21 +101,16 @@ class YahooFantasyInfo():
             #print("S in STANDING")
             #print(s)
             if not isinstance(standings[s], int):
-                #print("TEAM: ",standings[s]['team'][0][2]['name']," RANK: ",standings[s]['team'][2]['team_standings']['rank'])
-                #print(standings[s]['team'][0][2]['name'])
-                #print(standings[s]['team'][2]['team_standings']['rank'])
-                #print(" ")
                 team_name = standings[s]['team'][0][2]['name']
-                #print(team_name)
                 team_rank = standings[s]['team'][2]['team_standings']['rank']
-                #print(team_rank)
-                standing_info['team',s] = [team_rank,team_name]
-                #print(team_name," ", team_rank)
-                #standing_info['team',s] = [standings[s]['team'][0][2]['name'], standings[s]['team'][2]['team_standings']['rank']]
+                team_wins = standings[s]['team'][2]['team_standings']['outcome_totals']['wins']
+                team_losses = standings[s]['team'][2]['team_standings']['outcome_totals']['losses']
+                team_ties = standings[s]['team'][2]['team_standings']['outcome_totals']['ties']
+                standing_info['team',s] = [team_rank,team_name,team_wins,team_losses,team_ties]
         for t in standing_info:
             rank = int(standing_info[t][0])-1
             final_standings_info[rank]=standing_info[t]
-            print("PRE: ",standing_info[t]," ",rank)
+            #print("PRE: ",standing_info[t]," ",rank)
         for q in range(12):
             print("FINAL: ",final_standings_info[q])
 
