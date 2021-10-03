@@ -96,7 +96,7 @@ class YahooFantasyInfo():
         final_standings_info = {}
         for s in standings:
             if not isinstance(standings[s], int):
-                team_name = str(standings[s]['team'][0][2]['name'])
+                team_name = standings[s]['team'][0][2]['name']
                 team_rank = standings[s]['team'][2]['team_standings']['rank']
                 team_wins = standings[s]['team'][2]['team_standings']['outcome_totals']['wins']
                 team_losses = standings[s]['team'][2]['team_standings']['outcome_totals']['losses']
@@ -112,7 +112,7 @@ class YahooFantasyInfo():
         # TEST PRINT SORTED RANKING
         for q in range(12):
             #print("FINAL: ",final_standings_info[q])
-            print(str(final_standings_info[q][0]) + " " + str(final_standings_info[q][1]) + " " + final_standings_info[q][2] + "-" + str(final_standings_info[q][3]) + "-" + str(final_standings_info[q][4]))
+            print(str(final_standings_info[q][0]) + " " + final_standings_info[q][1].encode('utf-8') + " " + str(final_standings_info[q][2]) + "-" + str(final_standings_info[q][3]) + "-" + str(final_standings_info[q][4]))
 
     def get_avatars(self, teams):
         self.refresh_access_token()
