@@ -181,6 +181,9 @@ class MainRenderer:
     # Work in Progress
     def _draw_standings(self):
         debug.info('Output league standings')
+        off_pos = center_text(self.font.getsize('TESTING')[0], 32)
+        self.draw.multiline_text((off_pos,3), 'KICKOFF IN', fill=(255, 255, 255), font=self.font, align="center")
+        t.sleep(86400)
 
     def _draw_game(self):
         self.data.refresh_matchup()
