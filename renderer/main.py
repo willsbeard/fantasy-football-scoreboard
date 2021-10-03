@@ -50,27 +50,28 @@ class MainRenderer:
         time = self.data.get_current_date()
         # print(time)
         # print("week", self.week, "weekday", time.weekday(), "hour", time.hour)
-        if self.week == 0 or (time.weekday() == 3 and time.hour >= 13):
-            debug.info('Scheduled State, waiting 15 min')
-            self._draw_pregame()
-            t.sleep(900)
-        # thursday before 8pm est
-        elif time.weekday() == 4 and time.hour == 0 and time.minute <= 15:
-            debug.info('Pre-Game State, waiting 1 minute')
-            self._draw_pregame()
-            t.sleep(60)
-        # tuesday 1am until week change
-        elif (time.weekday() == 1 and time.hour > 5) or (1 < time.weekday() < 4):
-            debug.info('Final State, waiting 6 hours')
-            self._draw_post_game()
-            # sleep 6 hours
-            t.sleep(21600)
-        # thursday after 8pm est until tuesday 1am (hopefully else should catch it)
-        else:
-            debug.info('Live State, checking every 10s')
-            # Draw the current game
-            self._draw_game()
-        debug.info('ping render_game')
+        self._draw_standings()
+#        if self.week == 0 or (time.weekday() == 3 and time.hour >= 13):
+#            debug.info('Scheduled State, waiting 15 min')
+#            self._draw_pregame()
+#            t.sleep(900)
+#        # thursday before 8pm est
+#        elif time.weekday() == 4 and time.hour == 0 and time.minute <= 15:
+#            debug.info('Pre-Game State, waiting 1 minute')
+#            self._draw_pregame()
+#            t.sleep(60)
+#        # tuesday 1am until week change
+#        elif (time.weekday() == 1 and time.hour > 5) or (1 < time.weekday() < 4):
+#            debug.info('Final State, waiting 6 hours')
+#            self._draw_post_game()
+#            # sleep 6 hours
+#            t.sleep(21600)
+#        # thursday after 8pm est until tuesday 1am (hopefully else should catch it)
+#        else:
+#            debug.info('Live State, checking every 10s')
+#            # Draw the current game
+#            self._draw_game()
+#        debug.info('ping render_game')
 
     def __render_off_season(self):
         debug.info('ping_off_season')
@@ -176,6 +177,10 @@ class MainRenderer:
             # Refresh canvas
             self.image = Image.new('RGB', (self.width, self.height))
             self.draw = ImageDraw.Draw(self.image)
+
+    # Work in Progress
+    def _draw_standings(self):
+        debug.info('Output league standings')
 
     def _draw_game(self):
         self.data.refresh_matchup()
