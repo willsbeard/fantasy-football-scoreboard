@@ -101,18 +101,18 @@ class YahooFantasyInfo():
                 team_wins = standings[s]['team'][2]['team_standings']['outcome_totals']['wins']
                 team_losses = standings[s]['team'][2]['team_standings']['outcome_totals']['losses']
                 team_ties = standings[s]['team'][2]['team_standings']['outcome_totals']['ties']
-                #standing_info['team',s] = [team_rank,team_name,team_wins,team_losses,team_ties]
                 standing_info[s] = [team_rank,team_name,team_wins,team_losses,team_ties]
         
         #SORT RANKINGS
         for t in standing_info:
             rank = int(standing_info[t][0])-1
             final_standings_info[rank]=standing_info[t]
-            print("PRE: ",standing_info[t]," ",rank)
+            #print("PRE: ",standing_info[t]," ",rank)
         
         # TEST PRINT SORTED RANKING
         for q in range(12):
-            print("FINAL: ",final_standings_info[q])
+            #print("FINAL: ",final_standings_info[q])
+            print('TEAM: ',str(final_standings_info[q][2]))
 
     def get_avatars(self, teams):
         self.refresh_access_token()
