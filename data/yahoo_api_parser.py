@@ -101,6 +101,7 @@ class YahooFantasyInfo():
                 team_wins = standings[s]['team'][2]['team_standings']['outcome_totals']['wins']
                 team_losses = standings[s]['team'][2]['team_standings']['outcome_totals']['losses']
                 team_ties = standings[s]['team'][2]['team_standings']['outcome_totals']['ties']
+                team_name = team_name.encode(“utf-8”)
                 standing_info[s] = [team_rank,team_name,team_wins,team_losses,team_ties]
         
         #SORT RANKINGS
