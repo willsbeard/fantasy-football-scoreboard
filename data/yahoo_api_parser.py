@@ -96,12 +96,11 @@ class YahooFantasyInfo():
         final_standings_info = {}
         for s in standings:
             if not isinstance(standings[s], int):
-                team_name = standings[s]['team'][0][2]['name']
+                team_name = str(standings[s]['team'][0][2]['name'])
                 team_rank = standings[s]['team'][2]['team_standings']['rank']
                 team_wins = standings[s]['team'][2]['team_standings']['outcome_totals']['wins']
                 team_losses = standings[s]['team'][2]['team_standings']['outcome_totals']['losses']
                 team_ties = standings[s]['team'][2]['team_standings']['outcome_totals']['ties']
-                team_name = team_name.encode(“utf-8”)
                 standing_info[s] = [team_rank,team_name,team_wins,team_losses,team_ties]
         
         #SORT RANKINGS
