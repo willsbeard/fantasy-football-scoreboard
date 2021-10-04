@@ -183,6 +183,7 @@ class MainRenderer:
         debug.info('Output league standings')
         off_pos = center_text(self.font.getsize('TESTING')[0], 32)
         self.draw.multiline_text((off_pos,3), 'KICKOFF IN', fill=(255, 255, 255), font=self.font, align="center")
+        draw.rectangle((0, 0, 31, 31), fill=(0, 0, 0), outline=(0, 0, 255))
         self._refresh_image()
         t.sleep(86400)
 
