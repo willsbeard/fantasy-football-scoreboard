@@ -186,9 +186,9 @@ class MainRenderer:
     def _draw_standings(self):
         debug.info('Output league standings')
 
-        image = Image.new('RGB', (37, im_height))
+        image = Image.new('RGB', (37, 67))
         draw = ImageDraw.Draw(image)
-        
+
         #off_pos = center_text(self.font.getsize('TESTING')[0], 32)
         #self.draw.multiline_text((off_pos,3), 'KICKOFF IN', fill=(255, 255, 255), font=self.font, align="center")
         #self.draw.rectangle([0, 27, 36, 21], fill=(0, 0, 0), outline=(0, 0, 255))
