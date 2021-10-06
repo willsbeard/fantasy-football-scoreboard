@@ -187,7 +187,7 @@ class MainRenderer:
         #self.draw.text((1, 21), "STANDINGS:", fill=(255, 255, 255), font=self.font)
         self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
         self.draw.text((1, 0), "RECORD:".format(), fill=(255,255,255),font=self.font_mini)
-        self.draw.text((0, 13), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
+        self.draw.text((0, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
 
         self.draw.rectangle([0, 27, 36, 21], fill=(206, 17, 38))
         self.draw.text((1, 21), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
