@@ -183,8 +183,9 @@ class MainRenderer:
         debug.info('Output league standings')
         #off_pos = center_text(self.font.getsize('TESTING')[0], 32)
         #self.draw.multiline_text((off_pos,3), 'KICKOFF IN', fill=(255, 255, 255), font=self.font, align="center")
-        self.draw.rectangle([0, 27, 36, 21], fill=(0, 0, 0), outline=(0, 0, 255))
-        self.draw.text((1, 41), "STANDINGS:", fill=(255, 255, 255), font=self.font)
+        #self.draw.rectangle([0, 27, 36, 21], fill=(0, 0, 0), outline=(0, 0, 255))
+        #self.draw.text((1, 21), "STANDINGS:", fill=(255, 255, 255), font=self.font)
+        self.draw.text((1, 0), "RECORD:".format(), fill=(206, 17, 38),font=self.font)
         self._refresh_image()
         t.sleep(86400)
 
