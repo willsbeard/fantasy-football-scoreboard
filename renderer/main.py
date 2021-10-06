@@ -53,7 +53,21 @@ class MainRenderer:
         
         ##### MY CODE #####
         #self._draw_standings()
-        image = self._draw_standings()
+        self.matrix.clear()
+        image = self.draw_standings()
+
+        i = 0
+
+        while i > -(67 - self.matrix.height) and not self.sleepEvent.is_set():
+                i -= 1
+
+                self.matrix.clear()
+
+                #logo_renderer.render()
+                #self.matrix.draw_image((25,0), gradient, align="center")
+                self.matrix.draw_image_layout(self.layout.info,image,(0, i))
+
+                self.sleepEvent.wait(0.3)
 
 #        if self.week == 0 or (time.weekday() == 3 and time.hour >= 13):
 #            debug.info('Scheduled State, waiting 15 min')
