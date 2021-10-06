@@ -54,7 +54,7 @@ class MainRenderer:
         ##### MY CODE #####
         #self._draw_standings()
         self.canvas.Clear()
-        image = self.draw_standings()
+        image = self._draw_standings()
 
         i = 0
 
