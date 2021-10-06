@@ -50,7 +50,11 @@ class MainRenderer:
         time = self.data.get_current_date()
         # print(time)
         # print("week", self.week, "weekday", time.weekday(), "hour", time.hour)
-        self._draw_standings()
+        
+        ##### MY CODE #####
+        #self._draw_standings()
+        image = self._draw_standings()
+
 #        if self.week == 0 or (time.weekday() == 3 and time.hour >= 13):
 #            debug.info('Scheduled State, waiting 15 min')
 #            self._draw_pregame()
@@ -181,6 +185,10 @@ class MainRenderer:
     # Work in Progress
     def _draw_standings(self):
         debug.info('Output league standings')
+
+        image = Image.new('RGB', (37, im_height))
+        draw = ImageDraw.Draw(image)
+        
         #off_pos = center_text(self.font.getsize('TESTING')[0], 32)
         #self.draw.multiline_text((off_pos,3), 'KICKOFF IN', fill=(255, 255, 255), font=self.font, align="center")
         #self.draw.rectangle([0, 27, 36, 21], fill=(0, 0, 0), outline=(0, 0, 255))
@@ -193,8 +201,9 @@ class MainRenderer:
         self.draw.text((1, 21), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
         self.draw.text((0, 28), "VS CAPS".format(), fill=(255, 255, 255),font=self.font_mini)
         
-        self._refresh_image()
-        t.sleep(86400)
+        #self._refresh_image()
+        #t.sleep(86400)
+        return image
 
     def _draw_game(self):
         self.data.refresh_matchup()
