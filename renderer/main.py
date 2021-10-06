@@ -53,7 +53,7 @@ class MainRenderer:
         
         ##### MY CODE #####
         #self._draw_standings()
-        self.matrix.clear()
+        self.canvas.Clear()
         image = self.draw_standings()
 
         i = 0
@@ -61,7 +61,7 @@ class MainRenderer:
         while i > -(67 - self.matrix.height) and not self.sleepEvent.is_set():
                 i -= 1
 
-                self.matrix.clear()
+                self.canvas.Clear()
 
                 #logo_renderer.render()
                 #self.matrix.draw_image((25,0), gradient, align="center")
