@@ -53,10 +53,14 @@ class MainRenderer:
         
         ##### MY CODE #####
         #self._draw_standings()
+        self.sleepEvent = sleepEvent
+        self.sleepEvent.clear()
         self.canvas.Clear()
         image = self._draw_standings()
 
         i = 0
+
+        self.sleepEvent.wait(5)
 
         while i > -(67 - self.matrix.height) and not self.sleepEvent.is_set():
                 i -= 1
@@ -67,7 +71,7 @@ class MainRenderer:
                 #self.matrix.draw_image((25,0), gradient, align="center")
                 self.matrix.draw_image_layout(self.layout.info,image,(0, i))
 
-                t.sleep(0.3)
+                self.sleepEvent.wait(0.3)
 
 #        if self.week == 0 or (time.weekday() == 3 and time.hour >= 13):
 #            debug.info('Scheduled State, waiting 15 min')
