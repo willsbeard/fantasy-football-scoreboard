@@ -57,12 +57,15 @@ class MainRenderer:
         
         image = self._draw_standings()
 
-        print("IMAGE SIZE: ",self.image.size)
-        #print("IMAGE SIZE: ",image.size)
+        #print("IMAGE SIZE: ",self.image.size)
+        print("IMAGE SIZE: ",image.size)
 
         self.canvas.Clear()
         double_buffer = self.matrix.CreateFrameCanvas()
-        img_width, img_height = self.image.size
+        img_width, img_height = image.size
+
+        print("IMG WIDTH: ",img_width)
+        print("IMG HEIGHT: ",img_height)
 
         #self._refresh_image()
 
