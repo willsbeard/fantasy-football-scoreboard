@@ -247,13 +247,13 @@ class MainRenderer:
         self.draw.text((0, 49), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
         
         #self.canvas.Clear()
-        double_buffer = self.matrix.CreateFrameCanvas()
-        img_width, img_height = image.size
+        #double_buffer = self.matrix.CreateFrameCanvas()
+        #img_width, img_height = image.size
 
-        print("IMG WIDTH: ",img_width)
-        print("IMG HEIGHT: ",img_height)
+        #print("IMG WIDTH: ",img_width)
+        #print("IMG HEIGHT: ",img_height)
 
-        self._refresh_image()
+        #self._refresh_image()
 
         # let's scroll
         ypos = 0
@@ -264,14 +264,16 @@ class MainRenderer:
                 ypos = 0
 
             print("Y POS: ", ypos)
-            double_buffer.SetImage(self.image, 0, -ypos)
-            double_buffer.SetImage(self.image, 0, -ypos + img_height)
-            double_buffer = self.matrix.SwapOnVSync(double_buffer)
+            #double_buffer.SetImage(self.image, 0, -ypos)
+            #double_buffer.SetImage(self.image, 0, -ypos + img_height)
+            #double_buffer = self.matrix.SwapOnVSync(double_buffer)
 
             #self.canvas.SetImage(self.image, 0, -ypos)
             #self.canvas.SetImage(self.image, 0, -ypos + img_height)
             #self.canvas = self.matrix.SwapOnVSync(self.canvas)
-            
+            self.matrix.Clear()
+            self.matrix.SetImage(image, n, n)
+            #time.sleep(0.05)
             t.sleep(0.3)
 
         #self._refresh_image()
