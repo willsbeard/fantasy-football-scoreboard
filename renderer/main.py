@@ -70,17 +70,17 @@ class MainRenderer:
         #self._refresh_image()
 
         # let's scroll
-        xpos = 0
+        ypos = 0
         while True:
-            xpos += 1
-            if (xpos > img_width):
+            ypos += 1
+            if (ypos > img_height):
             #if (xpos > 64):
-                xpos = 0
+                ypos = 0
 
             #double_buffer.SetImage(self.image, 0, -xpos)
             #double_buffer.SetImage(self.image, 0, -xpos + img_height)
-            self.canvas.SetImage(self.image, 0, -xpos)
-            self.canvas.SetImage(self.image, 0, -xpos + img_height)
+            self.canvas.SetImage(self.image, 0, -ypos)
+            self.canvas.SetImage(self.image, 0, -ypos + img_height)
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
 
             #double_buffer = self.matrix.SwapOnVSync(double_buffer)
