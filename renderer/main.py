@@ -79,6 +79,7 @@ class MainRenderer:
 
             #double_buffer.SetImage(self.image, 0, -xpos)
             #double_buffer.SetImage(self.image, 0, -xpos + img_height)
+            print("Y POS: ", ypos)
             self.canvas.SetImage(self.image, 0, -ypos)
             self.canvas.SetImage(self.image, 0, -ypos + img_height)
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
