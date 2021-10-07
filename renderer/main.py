@@ -54,6 +54,7 @@ class MainRenderer:
         ##### MY CODE #####
         #self._draw_standings()
         img_height = 67
+        double_buffer = self.matrix.CreateFrameCanvas()
         self.canvas.Clear()
         image = self._draw_standings()
 
