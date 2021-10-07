@@ -61,21 +61,26 @@ class MainRenderer:
         double_buffer = self.matrix.CreateFrameCanvas()
         img_width, img_height = self.image.size
 
-        self._refresh_image()
+        #self._refresh_image()
 
         # let's scroll
-#        xpos = 0
-#        while True:
-#            xpos += 1
-#            #if (xpos > img_width):
-#            if (xpos > img_height):
-#                xpos = 0
+        xpos = 0
+        while True:
+            xpos += 1
+            #if (xpos > img_width):
+            if (xpos > img_height):
+                xpos = 0
 
-#            double_buffer.SetImage(self.image, 0, -xpos)
-#            double_buffer.SetImage(self.image, 0, -xpos + img_height)
+            #double_buffer.SetImage(self.image, 0, -xpos)
+            #double_buffer.SetImage(self.image, 0, -xpos + img_height)
+            self.canvas.SetImage(self.image, 0, -xpos)
+            self.canvas.SetImage(self.image, 0, -xpos + img_height)
+            self.canvas = self.matrix.SwapOnVSync(self.canvas)
 
-#            double_buffer = self.matrix.SwapOnVSync(double_buffer)
-#            t.sleep(0.3)
+            #double_buffer = self.matrix.SwapOnVSync(double_buffer)
+            t.sleep(0.3)
+
+        
 
         #i = 0
         #while i > -(67 - self.matrix.height):
