@@ -248,7 +248,7 @@ class MainRenderer:
         
         #self.canvas.Clear()
         #double_buffer = self.matrix.CreateFrameCanvas()
-        #img_width, img_height = image.size
+        img_width, img_height = image.size
 
         #print("IMG WIDTH: ",img_width)
         #print("IMG HEIGHT: ",img_height)
@@ -272,7 +272,7 @@ class MainRenderer:
             #self.canvas.SetImage(self.image, 0, -ypos + img_height)
             #self.canvas = self.matrix.SwapOnVSync(self.canvas)
             self.matrix.Clear()
-            self.matrix.SetImage(image, n, n)
+            self.matrix.SetImage(image, 0, -ypos)
             #time.sleep(0.05)
             t.sleep(0.3)
 
