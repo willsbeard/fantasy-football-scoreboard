@@ -76,8 +76,8 @@ class MainRenderer:
 
             #double_buffer.SetImage(self.image, 0, -xpos)
             #double_buffer.SetImage(self.image, 0, -xpos + img_height)
-            self.canvas.SetImage(self.image, 0, -xpos)
-            self.canvas.SetImage(self.image, 0, -xpos + img_height)
+            self.canvas.SetImage(image, 0, -xpos)
+            self.canvas.SetImage(image, 0, -xpos + img_height)
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
 
             #double_buffer = self.matrix.SwapOnVSync(double_buffer)
