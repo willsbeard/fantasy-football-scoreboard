@@ -55,14 +55,14 @@ class MainRenderer:
         #self._draw_standings()
         #img_height = 67
         
-        image = self._draw_standings()
+        self.image = self._draw_standings()
 
-        #print("IMAGE SIZE: ",self.image.size)
-        print("IMAGE SIZE: ",image.size)
+        print("IMAGE SIZE: ",self.image.size)
+        #print("IMAGE SIZE: ",image.size)
 
         self.canvas.Clear()
         double_buffer = self.matrix.CreateFrameCanvas()
-        img_width, img_height = image.size
+        img_width, img_height = self.image.size
 
         #self._refresh_image()
 
@@ -70,14 +70,14 @@ class MainRenderer:
         xpos = 0
         while True:
             xpos += 1
-            #if (xpos > img_width):
-            if (xpos > 64):
+            if (xpos > img_width):
+            #if (xpos > 64):
                 xpos = 0
 
             #double_buffer.SetImage(self.image, 0, -xpos)
             #double_buffer.SetImage(self.image, 0, -xpos + img_height)
-            self.canvas.SetImage(image, 0, -xpos)
-            self.canvas.SetImage(image, 0, -xpos + img_height)
+            self.canvas.SetImage(self.image, 0, -xpos)
+            self.canvas.SetImage(self.image, 0, -xpos + img_height)
             self.canvas = self.matrix.SwapOnVSync(self.canvas)
 
             #double_buffer = self.matrix.SwapOnVSync(double_buffer)
