@@ -57,6 +57,8 @@ class MainRenderer:
         
         image = self._draw_standings()
 
+        print("IMAGE SIZE: ",self.image.size)
+
         self.canvas.Clear()
         double_buffer = self.matrix.CreateFrameCanvas()
         img_width, img_height = self.image.size
@@ -222,13 +224,9 @@ class MainRenderer:
     def _draw_standings(self):
         debug.info('Output league standings')
 
-        image = Image.new('RGB', (37, 200))
+        image = Image.new('RGB', (37, 67))
         draw = ImageDraw.Draw(image)
 
-        #off_pos = center_text(self.font.getsize('TESTING')[0], 32)
-        #self.draw.multiline_text((off_pos,3), 'KICKOFF IN', fill=(255, 255, 255), font=self.font, align="center")
-        #self.draw.rectangle([0, 27, 36, 21], fill=(0, 0, 0), outline=(0, 0, 255))
-        #self.draw.text((1, 21), "STANDINGS:", fill=(255, 255, 255), font=self.font)
         self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
         self.draw.text((1, 0), "RECORD:".format(), fill=(255,255,255),font=self.font_mini)
         self.draw.text((0, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
