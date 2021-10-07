@@ -238,13 +238,13 @@ class MainRenderer:
         self.draw.text((1, 0), "RECORD:".format(), fill=(255,255,255),font=self.font_mini)
         self.draw.text((0, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
 
-        self.draw.rectangle([0, 27, 36, 21], fill=(206, 17, 38))
-        self.draw.text((1, 21), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
-        self.draw.text((0, 28), "160-142".format(), fill=(255, 255, 255),font=self.font_mini)
+        self.draw.rectangle([0, 27, 36, 10], fill=(206, 17, 38))
+        self.draw.text((1, 10), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
+        self.draw.text((0, 17), "160-142".format(), fill=(255, 255, 255),font=self.font_mini)
 
-        self.draw.rectangle([0, 48, 36, 42], fill=(206, 17, 38))
-        self.draw.text((1, 42), "NEXT GAME:", fill=(255, 255, 255),font=self.font_mini)
-        self.draw.text((0, 49), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
+        self.draw.rectangle([0, 48, 36, 20], fill=(206, 17, 38))
+        self.draw.text((1, 20), "NEXT GAME:", fill=(255, 255, 255),font=self.font_mini)
+        self.draw.text((0, 27), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
         
         #self._refresh_image()
         #t.sleep(86400)
