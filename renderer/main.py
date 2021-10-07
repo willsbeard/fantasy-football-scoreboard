@@ -253,7 +253,7 @@ class MainRenderer:
         print("IMG WIDTH: ",img_width)
         print("IMG HEIGHT: ",img_height)
 
-        #self._refresh_image()
+        self._refresh_image()
 
         # let's scroll
         ypos = 0
@@ -271,7 +271,6 @@ class MainRenderer:
             #self.canvas.SetImage(self.image, 0, -ypos)
             #self.canvas.SetImage(self.image, 0, -ypos + img_height)
             #self.canvas = self.matrix.SwapOnVSync(self.canvas)
-
             
             t.sleep(0.3)
 
