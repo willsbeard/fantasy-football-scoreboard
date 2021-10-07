@@ -70,7 +70,7 @@ class MainRenderer:
             double_buffer.SetImage(self.image, 0, -xpos + img_height)
 
             double_buffer = self.matrix.SwapOnVSync(double_buffer)
-            time.sleep(0.01)
+            t.sleep(0.01)
 
         #i = 0
         #while i > -(67 - self.matrix.height):
