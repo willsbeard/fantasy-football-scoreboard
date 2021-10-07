@@ -77,14 +77,16 @@ class MainRenderer:
             #if (xpos > 64):
                 ypos = 0
 
-            #double_buffer.SetImage(self.image, 0, -xpos)
-            #double_buffer.SetImage(self.image, 0, -xpos + img_height)
             print("Y POS: ", ypos)
-            self.canvas.SetImage(self.image, 0, -ypos)
-            self.canvas.SetImage(self.image, 0, -ypos + img_height)
-            self.canvas = self.matrix.SwapOnVSync(self.canvas)
+            double_buffer.SetImage(self.image, 0, -xpos)
+            double_buffer.SetImage(self.image, 0, -xpos + img_height)
+            double_buffer = self.matrix.SwapOnVSync(double_buffer)
 
-            #double_buffer = self.matrix.SwapOnVSync(double_buffer)
+            #self.canvas.SetImage(self.image, 0, -ypos)
+            #self.canvas.SetImage(self.image, 0, -ypos + img_height)
+            #self.canvas = self.matrix.SwapOnVSync(self.canvas)
+
+            
             t.sleep(0.3)
 
         
