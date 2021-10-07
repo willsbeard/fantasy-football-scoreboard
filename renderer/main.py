@@ -62,7 +62,7 @@ class MainRenderer:
 
         self.canvas.Clear()
         double_buffer = self.matrix.CreateFrameCanvas()
-        img_width, img_height = self.image.size
+        img_width, img_height = image.size
 
         #self._refresh_image()
 
