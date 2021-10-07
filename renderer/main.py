@@ -70,7 +70,7 @@ class MainRenderer:
         while True:
             xpos += 1
             #if (xpos > img_width):
-            if (xpos > img_height):
+            if (xpos > 64):
                 xpos = 0
 
             #double_buffer.SetImage(self.image, 0, -xpos)
@@ -224,7 +224,7 @@ class MainRenderer:
     def _draw_standings(self):
         debug.info('Output league standings')
 
-        image = Image.new('RGB', (75, 67))
+        image = Image.new('RGB', (37, 67))
         draw = ImageDraw.Draw(image)
 
         self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
