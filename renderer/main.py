@@ -222,7 +222,7 @@ class MainRenderer:
     def _draw_standings(self):
         debug.info('Output league standings')
 
-        image = Image.new('RGB', (37, 67))
+        image = Image.new('RGB', (37, 200))
         draw = ImageDraw.Draw(image)
 
         #off_pos = center_text(self.font.getsize('TESTING')[0], 32)
