@@ -272,7 +272,7 @@ class MainRenderer:
             #self.canvas.SetImage(self.image, 0, -ypos + img_height)
             #self.canvas = self.matrix.SwapOnVSync(self.canvas)
             self.matrix.Clear()
-            self.matrix.SetImage(image, 0, -ypos)
+            self.matrix.SetImage(self.image, 0, -ypos)
             #time.sleep(0.05)
             t.sleep(0.3)
 
