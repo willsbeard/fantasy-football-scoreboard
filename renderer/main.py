@@ -53,21 +53,32 @@ class MainRenderer:
         
         ##### MY CODE #####
         #self._draw_standings()
+        img_height = 67
         self.canvas.Clear()
         image = self._draw_standings()
 
-        i = 0
+        # let's scroll
+        xpos = 0
+        while True:
+            xpos += 1
+            #if (xpos > img_width):
+            if (xpos > img_height):
+                xpos = 0
 
-        while i > -(67 - self.matrix.height):
-                i -= 1
+            double_buffer.SetImage(self.image, 0, -xpos)
+            double_buffer.SetImage(self.image, 0, -xpos + img_height)
 
-                self.canvas.Clear()
+            double_buffer = self.matrix.SwapOnVSync(double_buffer)
+            time.sleep(0.01)
 
-                #logo_renderer.render()
-                #self.matrix.draw_image((25,0), gradient, align="center")
-                self.matrix.draw_image_layout(self.layout.info,image,(0, i))
-
-                t.sleep(0.3)
+        #i = 0
+        #while i > -(67 - self.matrix.height):
+        #        i -= 1
+        #        self.canvas.Clear()
+        #        #logo_renderer.render()
+        #        #self.matrix.draw_image((25,0), gradient, align="center")
+        #        self.matrix.draw_image_layout(self.layout.info,image,(0, i))
+        #        t.sleep(0.3)
 
 #        if self.week == 0 or (time.weekday() == 3 and time.hour >= 13):
 #            debug.info('Scheduled State, waiting 15 min')
