@@ -246,14 +246,14 @@ class MainRenderer:
         self.draw.text((1, 42), "NEXT GAME:", fill=(255, 255, 255),font=self.font_mini)
         self.draw.text((0, 49), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
         
-        self.canvas.Clear()
+        #self.canvas.Clear()
         double_buffer = self.matrix.CreateFrameCanvas()
         img_width, img_height = image.size
 
         print("IMG WIDTH: ",img_width)
         print("IMG HEIGHT: ",img_height)
 
-        self._refresh_image()
+        #self._refresh_image()
 
         # let's scroll
         ypos = 0
