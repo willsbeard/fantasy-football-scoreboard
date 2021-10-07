@@ -53,10 +53,13 @@ class MainRenderer:
         
         ##### MY CODE #####
         #self._draw_standings()
-        img_height = 67
-        double_buffer = self.matrix.CreateFrameCanvas()
-        self.canvas.Clear()
+        #img_height = 67
+        
         image = self._draw_standings()
+
+        self.canvas.Clear()
+        double_buffer = self.matrix.CreateFrameCanvas()
+        img_width, img_height = self.image.size
 
         # let's scroll
         xpos = 0
