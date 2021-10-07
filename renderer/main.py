@@ -224,7 +224,7 @@ class MainRenderer:
     def _draw_standings(self):
         debug.info('Output league standings')
 
-        image = Image.new('RGB', (37, 67))
+        image = Image.new('RGB', (75, 67))
         draw = ImageDraw.Draw(image)
 
         self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
