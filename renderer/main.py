@@ -61,7 +61,7 @@ class MainRenderer:
         double_buffer = self.matrix.CreateFrameCanvas()
         img_width, img_height = self.image.size
 
-        double_buffer.SetImage(self.image, 0, 0)
+        self._refresh_image()
 
         # let's scroll
 #        xpos = 0
