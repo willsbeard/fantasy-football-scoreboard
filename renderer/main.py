@@ -55,7 +55,7 @@ class MainRenderer:
         #self._draw_standings()
         #img_height = 67
         
-        self.image = self._draw_standings()
+        image = self._draw_standings()
 
         print("IMAGE SIZE: ",self.image.size)
         #print("IMAGE SIZE: ",image.size)
