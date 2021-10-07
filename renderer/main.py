@@ -52,42 +52,42 @@ class MainRenderer:
         # print("week", self.week, "weekday", time.weekday(), "hour", time.hour)
         
         ##### MY CODE #####
-        #self._draw_standings()
+        self._draw_standings()
         #img_height = 67
         
-        image = self._draw_standings()
+        #image = self._draw_standings()
 
         #print("IMAGE SIZE: ",self.image.size)
-        print("IMAGE SIZE: ",image.size)
+        #print("IMAGE SIZE: ",image.size)
 
-        self.canvas.Clear()
-        double_buffer = self.matrix.CreateFrameCanvas()
-        img_width, img_height = image.size
+#        self.canvas.Clear()
+#        double_buffer = self.matrix.CreateFrameCanvas()
+#        img_width, img_height = image.size
 
-        print("IMG WIDTH: ",img_width)
-        print("IMG HEIGHT: ",img_height)
+#        print("IMG WIDTH: ",img_width)
+#        print("IMG HEIGHT: ",img_height)
 
         #self._refresh_image()
 
         # let's scroll
-        ypos = 0
-        while True:
-            ypos += 1
-            if (ypos > img_height):
-            #if (xpos > 64):
-                ypos = 0
+#        ypos = 0
+#        while True:
+#            ypos += 1
+#            if (ypos > img_height):
+#            #if (xpos > 64):
+#                ypos = 0
 
-            print("Y POS: ", ypos)
-            double_buffer.SetImage(self.image, 0, -ypos)
-            double_buffer.SetImage(self.image, 0, -ypos + img_height)
-            double_buffer = self.matrix.SwapOnVSync(double_buffer)
+#            print("Y POS: ", ypos)
+#            double_buffer.SetImage(self.image, 0, -ypos)
+#            double_buffer.SetImage(self.image, 0, -ypos + img_height)
+#            double_buffer = self.matrix.SwapOnVSync(double_buffer)
 
             #self.canvas.SetImage(self.image, 0, -ypos)
             #self.canvas.SetImage(self.image, 0, -ypos + img_height)
             #self.canvas = self.matrix.SwapOnVSync(self.canvas)
 
             
-            t.sleep(0.3)
+#            t.sleep(0.3)
 
         
 
@@ -238,17 +238,46 @@ class MainRenderer:
         self.draw.text((1, 0), "RECORD:".format(), fill=(255,255,255),font=self.font_mini)
         self.draw.text((0, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
 
-        self.draw.rectangle([0, 27, 36, 10], fill=(206, 17, 38))
-        self.draw.text((1, 10), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
-        self.draw.text((0, 17), "160-142".format(), fill=(255, 255, 255),font=self.font_mini)
+        self.draw.rectangle([0, 27, 36, 21], fill=(206, 17, 38))
+        self.draw.text((1, 21), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
+        self.draw.text((0, 28), "160-142".format(), fill=(255, 255, 255),font=self.font_mini)
 
-        self.draw.rectangle([0, 48, 36, 20], fill=(206, 17, 38))
-        self.draw.text((1, 20), "NEXT GAME:", fill=(255, 255, 255),font=self.font_mini)
-        self.draw.text((0, 27), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
+        self.draw.rectangle([0, 48, 36, 42], fill=(206, 17, 38))
+        self.draw.text((1, 42), "NEXT GAME:", fill=(255, 255, 255),font=self.font_mini)
+        self.draw.text((0, 49), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
         
+        self.canvas.Clear()
+        double_buffer = self.matrix.CreateFrameCanvas()
+        img_width, img_height = image.size
+
+        print("IMG WIDTH: ",img_width)
+        print("IMG HEIGHT: ",img_height)
+
+        #self._refresh_image()
+
+        # let's scroll
+        ypos = 0
+        while True:
+            ypos += 1
+            if (ypos > img_height):
+            #if (xpos > 64):
+                ypos = 0
+
+            print("Y POS: ", ypos)
+            double_buffer.SetImage(self.image, 0, -ypos)
+            double_buffer.SetImage(self.image, 0, -ypos + img_height)
+            double_buffer = self.matrix.SwapOnVSync(double_buffer)
+
+            #self.canvas.SetImage(self.image, 0, -ypos)
+            #self.canvas.SetImage(self.image, 0, -ypos + img_height)
+            #self.canvas = self.matrix.SwapOnVSync(self.canvas)
+
+            
+            t.sleep(0.3)
+
         #self._refresh_image()
         #t.sleep(86400)
-        return image
+        #return image
 
     def _draw_game(self):
         self.data.refresh_matchup()
