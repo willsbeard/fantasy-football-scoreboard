@@ -253,7 +253,7 @@ class MainRenderer:
         print("IMG WIDTH: ",img_width)
         print("IMG HEIGHT: ",img_height)
 
-        #self._refresh_image()
+        self._refresh_image()
 
         # let's scroll
         ypos = 0
