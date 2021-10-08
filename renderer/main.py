@@ -53,52 +53,6 @@ class MainRenderer:
         
         ##### MY CODE #####
         self._draw_standings()
-        #img_height = 67
-        
-        #image = self._draw_standings()
-
-        #print("IMAGE SIZE: ",self.image.size)
-        #print("IMAGE SIZE: ",image.size)
-
-#        self.canvas.Clear()
-#        double_buffer = self.matrix.CreateFrameCanvas()
-#        img_width, img_height = image.size
-
-#        print("IMG WIDTH: ",img_width)
-#        print("IMG HEIGHT: ",img_height)
-
-        #self._refresh_image()
-
-        # let's scroll
-#        ypos = 0
-#        while True:
-#            ypos += 1
-#            if (ypos > img_height):
-#            #if (xpos > 64):
-#                ypos = 0
-
-#            print("Y POS: ", ypos)
-#            double_buffer.SetImage(self.image, 0, -ypos)
-#            double_buffer.SetImage(self.image, 0, -ypos + img_height)
-#            double_buffer = self.matrix.SwapOnVSync(double_buffer)
-
-            #self.canvas.SetImage(self.image, 0, -ypos)
-            #self.canvas.SetImage(self.image, 0, -ypos + img_height)
-            #self.canvas = self.matrix.SwapOnVSync(self.canvas)
-
-            
-#            t.sleep(0.3)
-
-        
-
-        #i = 0
-        #while i > -(67 - self.matrix.height):
-        #        i -= 1
-        #        self.canvas.Clear()
-        #        #logo_renderer.render()
-        #        #self.matrix.draw_image((25,0), gradient, align="center")
-        #        self.matrix.draw_image_layout(self.layout.info,image,(0, i))
-        #        t.sleep(0.3)
 
 #        if self.week == 0 or (time.weekday() == 3 and time.hour >= 13):
 #            debug.info('Scheduled State, waiting 15 min')
@@ -239,9 +193,7 @@ class MainRenderer:
         self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
         self.draw.text((1, 0), "RANKS:".format(), fill=(255,255,255),font=self.font_mini)
         #self.draw.text((1, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
-        row_start = 0
-        #team_name = league[0][1]
-        #self.draw.text((1, 7), team_name, fill=(255, 255, 255),font=self.font_mini)
+        row_start = 7
         for s in league:
             team_name = league[s][1]
             rank = league[s][0]
@@ -249,7 +201,7 @@ class MainRenderer:
             self.draw.text((1, row_start), rank, fill=(255, 255, 255),font=self.font_mini)
             row_start = row_start + 7
 
-        t.sleep(5)
+        #t.sleep(5)
 
         #self.draw.rectangle([0, 27, 36, 21], fill=(206, 17, 38))
         #self.draw.text((1, 21), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
@@ -263,35 +215,17 @@ class MainRenderer:
         #double_buffer = self.matrix.CreateFrameCanvas()
         img_width, img_height = self.image.size
 
-        print("IMG WIDTH: ",img_width)
-        print("IMG HEIGHT: ",img_height)
-
-        #self._refresh_image()
-
         # let's scroll
         ypos = 0
         while True:
             ypos += 1
             if (ypos > img_height):
-            #if (xpos > 64):
                 ypos = 0
 
             print("Y POS: ", ypos)
-            #double_buffer.SetImage(self.image, 0, -ypos)
-            #double_buffer.SetImage(self.image, 0, -ypos + img_height)
-            #double_buffer = self.matrix.SwapOnVSync(double_buffer)
-
-            #self.canvas.SetImage(self.image, 0, -ypos)
-            #self.canvas.SetImage(self.image, 0, -ypos + img_height)
-            #self.canvas = self.matrix.SwapOnVSync(self.canvas)
             self.matrix.Clear()
             self.matrix.SetImage(self.image, 0, -ypos)
-            #time.sleep(0.05)
             t.sleep(0.3)
-
-        #self._refresh_image()
-        #t.sleep(86400)
-        #return image
 
     def _draw_game(self):
         self.data.refresh_matchup()
