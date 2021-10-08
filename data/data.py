@@ -32,6 +32,7 @@ class Data:
         # self.my_players = self.get_players()
         # self.matchup = sleeper.get_matchup(self.roster_id, self.league_id, self.week, self.teams_info)
         self.matchup = self.api.matchup
+        self.league = self.api.league
         # print(self.matchup)
 
     def choose_api(self):
