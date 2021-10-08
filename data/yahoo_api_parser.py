@@ -39,7 +39,7 @@ class YahooFantasyInfo():
             self.oauth.refresh_access_token()
 
         self.matchup = self.get_matchup(self.game_id, self.league_id, self.team_id, week)
-        self.all_matchups = self.get_all_matchups(self.game_id, self.league_id, self.team_id, week)
+        self.all_matchups = self.get_all_matchups(self.game_id, self.league_id, week)
         self.league = self.get_league(self.game_id, self.league_id, self.team_id, week)
         self.get_avatars(self.matchup)
 
