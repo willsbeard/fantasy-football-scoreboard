@@ -233,7 +233,7 @@ class MainRenderer:
         league = self.data.league
         print(league)
 
-        self.image = Image.new('RGB', (37, 67))
+        self.image = Image.new('RGB', (64, 90))
         self.draw = ImageDraw.Draw(self.image)
 
         self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
