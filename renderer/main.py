@@ -229,7 +229,7 @@ class MainRenderer:
             if (ypos > img_height):
                 ypos = 0
 
-            print("Y POS: ", ypos)
+            #print("Y POS: ", ypos)
             self.matrix.Clear()
             self.matrix.SetImage(self.image, 0, -ypos)
             t.sleep(0.3)
