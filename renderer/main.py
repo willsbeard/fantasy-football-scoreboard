@@ -250,8 +250,8 @@ class MainRenderer:
         #double_buffer = self.matrix.CreateFrameCanvas()
         img_width, img_height = image.size
 
-        #print("IMG WIDTH: ",img_width)
-        #print("IMG HEIGHT: ",img_height)
+        print("IMG WIDTH: ",img_width)
+        print("IMG HEIGHT: ",img_height)
 
         #self._refresh_image()
 
