@@ -230,6 +230,8 @@ class MainRenderer:
     # Work in Progress
     def _draw_standings(self):
         debug.info('Output league standings')
+        league = self.data.league
+        print(league)
 
         self.image = Image.new('RGB', (37, 67))
         self.draw = ImageDraw.Draw(self.image)
