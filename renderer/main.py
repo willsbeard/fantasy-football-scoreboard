@@ -239,13 +239,13 @@ class MainRenderer:
         self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
         self.draw.text((1, 0), "RANKS:".format(), fill=(255,255,255),font=self.font_mini)
         #self.draw.text((1, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
-        row_start = 7
+        row_start = 10
         #team_name = league[0][1]
         #self.draw.text((1, 7), team_name, fill=(255, 255, 255),font=self.font_mini)
         for s in league:
             team_name = league[s][1]
             rank = league[s][0]
-            self.draw.text((1, row_start), team_name, fill=(255, 255, 255),font=self.font)
+            self.draw.text((1, row_start), team_name, fill=(255, 255, 255),font=self.font_vs)
             row_start = row_start + 7
 
         t.sleep(5)
