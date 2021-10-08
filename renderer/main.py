@@ -234,17 +234,29 @@ class MainRenderer:
         image = Image.new('RGB', (37, 20))
         draw = ImageDraw.Draw(image)
 
-        self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
-        self.draw.text((1, 0), "RECORD:".format(), fill=(255,255,255),font=self.font_mini)
-        self.draw.text((1, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
+        #.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
+        #self.draw.text((1, 0), "RECORD:".format(), fill=(255,255,255),font=self.font_mini)
+        #self.draw.text((1, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
 
-        self.draw.rectangle([0, 27, 36, 21], fill=(206, 17, 38))
-        self.draw.text((1, 21), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
-        self.draw.text((1, 27), "TEST".format(), fill=(255, 255, 255),font=self.font_mini)
+        #self.draw.rectangle([0, 27, 36, 21], fill=(206, 17, 38))
+        #self.draw.text((1, 21), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
+        #self.draw.text((1, 27), "TEST".format(), fill=(255, 255, 255),font=self.font_mini)
 
-        self.draw.rectangle([0, 48, 36, 42], fill=(206, 17, 38))
-        self.draw.text((1, 42), "NEXT GAME:", fill=(255, 255, 255),font=self.font_mini)
-        self.draw.text((1, 52), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
+        #self.draw.rectangle([0, 48, 36, 42], fill=(206, 17, 38))
+        #self.draw.text((1, 42), "NEXT GAME:", fill=(255, 255, 255),font=self.font_mini)
+        #self.draw.text((1, 52), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
+
+        draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
+        draw.text((1, 0), "RECORD:".format(), fill=(255,255,255),font=self.font_mini)
+        draw.text((1, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
+
+        draw.rectangle([0, 27, 36, 21], fill=(206, 17, 38))
+        draw.text((1, 21), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
+        draw.text((1, 27), "TEST".format(), fill=(255, 255, 255),font=self.font_mini)
+
+        draw.rectangle([0, 48, 36, 42], fill=(206, 17, 38))
+        draw.text((1, 42), "NEXT GAME:", fill=(255, 255, 255),font=self.font_mini)
+        draw.text((1, 52), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
         
         #self.canvas.Clear()
         #double_buffer = self.matrix.CreateFrameCanvas()
