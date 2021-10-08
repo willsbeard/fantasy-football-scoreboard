@@ -187,11 +187,11 @@ class MainRenderer:
         league = self.data.league
         print(league)
 
-        self.image = Image.new('RGB', (64, 90))
+        self.image = Image.new('RGB', (64, 170))
         self.draw = ImageDraw.Draw(self.image)
 
         self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
-        self.draw.text((1, 0), "RANKS:".format(), fill=(255,255,255),font=self.font_mini)
+        self.draw.text((1, 0), "STANDINGS:".format(), fill=(255,255,255),font=self.font_mini)
         #self.draw.text((1, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
         row_start = 7
         for s in league:
