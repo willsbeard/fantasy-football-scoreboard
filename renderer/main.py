@@ -244,7 +244,8 @@ class MainRenderer:
         #self.draw.text((1, 7), team_name, fill=(255, 255, 255),font=self.font_mini)
         for s in league:
             team_name = league[s][1]
-            self.draw.text((1, row_start), team_name, fill=(255, 255, 255),font=self.font_mini)
+            rank = league[s][0]
+            self.draw.text((1, row_start), team_name, fill=(255, 255, 255),font=self.font_vs)
             row_start = row_start + 7
 
         t.sleep(5)
