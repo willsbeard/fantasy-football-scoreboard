@@ -181,13 +181,66 @@ class MainRenderer:
             self.image = Image.new('RGB', (self.width, self.height))
             self.draw = ImageDraw.Draw(self.image)
 
-    # Work in Progress
+    # STANDINGS - Work in Progress
     def _draw_standings(self):
         debug.info('Output league standings')
         league = self.data.league
         print(league)
 
-        self.image = Image.new('RGB', (64, 170))
+        self.image = Image.new('RGB', (64, 175))
+        self.draw = ImageDraw.Draw(self.image)
+
+        self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))
+        self.draw.text((1, 0), "STANDINGS:".format(), fill=(255,255,255),font=self.font_mini)
+        #self.draw.text((1, 7), "5-3-1".format(), fill=(255, 255, 255),font=self.font_mini)
+        row_start = 7
+        for s in league:
+            team_name = league[s][1]
+            rank = league[s][0]
+            rank = rank + " " + team_name
+            wins = league[s][2]
+            loses = league[s][3]
+            ties = league[s][4]
+            record = str(wins) + "-" + str(loses) + "-" + str(ties)
+            self.draw.text((1, row_start), rank, fill=(255, 255, 255),font=self.font_mini)
+            row_start = row_start + 7
+            self.draw.text((5, row_start), record, fill=(255, 255, 255),font=self.font_mini)
+            row_start = row_start + 7
+
+
+        #t.sleep(5)
+
+        #self.draw.rectangle([0, 27, 36, 21], fill=(206, 17, 38))
+        #self.draw.text((1, 21), "LAST GAME:", fill=(255, 255, 255),font=self.font_mini)
+        #self.draw.text((1, 27), "TEST".format(), fill=(255, 255, 255),font=self.font_mini)
+
+        #self.draw.rectangle([0, 48, 36, 42], fill=(206, 17, 38))
+        #self.draw.text((1, 42), "NEXT GAME:", fill=(255, 255, 255),font=self.font_mini)
+        #self.draw.text((1, 52), "ME vs YOU".format(), fill=(255, 255, 255),font=self.font_mini)
+        
+        #self.canvas.Clear()
+        #double_buffer = self.matrix.CreateFrameCanvas()
+        img_width, img_height = self.image.size
+
+        # let's scroll
+        ypos = 0
+        while True:
+            ypos += 1
+            if (ypos > img_height):
+                ypos = 0
+
+            #print("Y POS: ", ypos)
+            self.matrix.Clear()
+            self.matrix.SetImage(self.image, 0, -ypos)
+            t.sleep(0.3)
+
+    # STANDINGS - Work in Progress
+    def _week_recap(self):
+        debug.info('Output weeklu recap')
+        league = self.data.league
+        print(league)
+
+        self.image = Image.new('RGB', (64, 175))
         self.draw = ImageDraw.Draw(self.image)
 
         self.draw.rectangle([0, 6, 26, -1], fill=(206, 17, 38))

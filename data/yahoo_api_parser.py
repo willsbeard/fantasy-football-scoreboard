@@ -39,6 +39,7 @@ class YahooFantasyInfo():
             self.oauth.refresh_access_token()
 
         self.matchup = self.get_matchup(self.game_id, self.league_id, self.team_id, week)
+        self.all_matchups = self.get_all_matchups(self.game_id, self.league_id, self.team_id, week)
         self.league = self.get_league(self.game_id, self.league_id, self.team_id, week)
         self.get_avatars(self.matchup)
 
@@ -86,6 +87,25 @@ class YahooFantasyInfo():
                             matchup_info['opp_score'] = float(team[t]['team'][1]['team_points']['total'])
         return matchup_info
 
+    def get_all_matchups(self, game_id, league_id, team_id, week):
+        self.refresh_access_token()
+        #url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
+        url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1};out=scoreboard;week={3}?format=json".format(self.game_id, self.league_id, self.team_id, week)
+        response = self.oauth.session.get(url, params={'format': 'json'})
+        matchups = response.json()["fantasy_content"]["league"][1]["scoreboard"][0]["matchups"]
+        #print("FULL MATCHUPS")
+        #print(matchups)
+        matchups_info = {}
+        for m in matchups:
+            #print("M in MATCHUPS: ")
+            #print(m)
+            if not isinstance(matchups[m], int): #WHEN INTEGER ENTER
+                #print ("FALSE")
+                team = matchups[m]['matchup']['0']['teams']
+                print("TEAM")
+                print(team)
+        #return matchups_info
+
     def get_league(self, game_id, league_id, team_id, week):
         self.refresh_access_token()
         url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/standings".format(self.game_id, self.league_id)
@@ -112,9 +132,8 @@ class YahooFantasyInfo():
             #print("PRE: ",standing_info[t]," ",rank)
         
         # TEST PRINT SORTED RANKING
-        for q in range(12):
-            #print("FINAL: ",final_standings_info[q])
-            print(str(final_standings_info[q][0]) + " " + final_standings_info[q][1].encode('utf-8') + " " + str(final_standings_info[q][2]) + "-" + str(final_standings_info[q][3]) + "-" + str(final_standings_info[q][4]))
+        #for q in range(12):
+        #    print(str(final_standings_info[q][0]) + " " + final_standings_info[q][1].encode('utf-8') + " " + str(final_standings_info[q][2]) + "-" + str(final_standings_info[q][3]) + "-" + str(final_standings_info[q][4]))
         
         return final_standings_info
 
