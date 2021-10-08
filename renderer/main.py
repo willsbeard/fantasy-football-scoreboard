@@ -201,7 +201,7 @@ class MainRenderer:
             wins = league[s][2]
             loses = league[s][3]
             ties = league[s][4]
-            record = wins + "-" + loses + "-" + ties
+            record = wins + " " + loses + " " + ties
             self.draw.text((1, row_start), rank, fill=(255, 255, 255),font=self.font_mini)
             row_start = row_start + 7
             self.draw.text((5, row_start), record, fill=(255, 255, 255),font=self.font_mini)
