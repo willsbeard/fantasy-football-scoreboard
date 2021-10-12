@@ -94,8 +94,8 @@ class YahooFantasyInfo():
         response = self.oauth.session.get(url, params={'format': 'json'})
         #print("URL")
         #print(url)
-        matchups = response.json()["fantasy_content"]["league"][1]["scoreboard"][0]["matchups"]
-        #matchups = response.json()["fantasy_content"]
+        #matchups = response.json()["fantasy_content"]["league"][1]["scoreboard"][0]["matchups"]
+        matchups = response.json()["fantasy_content"]
         print("FULL MATCHUPS")
         print(matchups)
         matchups_info = {}
