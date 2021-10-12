@@ -90,7 +90,7 @@ class YahooFantasyInfo():
     def get_all_matchups(self, game_id, league_id, week):
         self.refresh_access_token()
         #url = "https://fantasysports.yahooapis.com/fantasy/v2/team/{0}.l.{1}.t.{2}/matchups;weeks={3}".format(self.game_id, self.league_id, self.team_id, week)
-        url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1};out=scoreboard;week={2}".format(self.game_id, self.league_id, week)
+        url = "https://fantasysports.yahooapis.com/fantasy/v2/league/{0}.l.{1}/scoreboard;week={2}".format(self.game_id, self.league_id, week)
         response = self.oauth.session.get(url, params={'format': 'json'})
         #print("URL")
         #print(url)
