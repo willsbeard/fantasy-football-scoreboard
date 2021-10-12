@@ -95,7 +95,7 @@ class YahooFantasyInfo():
         #print("URL")
         #print(url)
         #matchups = response.json()["fantasy_content"]["league"][1]["scoreboard"][0]["matchups"]
-        matchups = response.json()["fantasy_content"]["league"][1]
+        matchups = response.json()["fantasy_content"]["league"][1]["scoreboard"]
         print("FULL MATCHUPS")
         print(matchups)
         matchups_info = {}
